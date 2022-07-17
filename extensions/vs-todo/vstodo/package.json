@@ -13,10 +13,33 @@
     "onCommand:vstodo.helloWorld",
     "onCommand:vstodo.askMessage",
     "onCommand:vstodo.openHelloWorldPanel",
-    "onCommand:vstodo.refreshWebView"
+    "onCommand:vstodo.refreshWebView",
+    "onView:vstodo-sidebar",
+    "onCommand:vstodo.addTodo"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vstodo-sidebar-view",
+          "icon": "media/icon.svg",
+          "title": "VSTodo"
+        }
+      ]
+    },
+    "views": {
+      "vstodo-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "vstodo-sidebar",
+          "name": "VSTodo",
+          "icon": "media/icon.svg",
+          "contextualTitle": "My Vs Todo",
+          "visibility": "visible"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "vstodo.helloWorld",
@@ -25,6 +48,11 @@
       {
         "command": "vstodo.askMessage",
         "title": "Day check",
+        "category": "Developer"
+      },
+      {
+        "command": "vstodo.addTodo",
+        "title": "Adding Todo From Selection",
         "category": "Developer"
       },
       {
@@ -55,6 +83,7 @@
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
+    "@types/polka": "^0.5.4",
     "@types/vscode": "^1.69.0",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
@@ -69,5 +98,8 @@
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "polka": "^0.5.2"
   }
 }
