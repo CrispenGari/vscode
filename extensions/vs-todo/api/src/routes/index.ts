@@ -16,7 +16,7 @@ router.get(
   }
 );
 
-router.get("/todo", isAuth, async (req: any, res) => {
+router.get("/todo", isAuth, async (req, res) => {
   const todos = await Todo.find({
     where: { creatorId: req.userId },
     order: { id: "DESC" },
@@ -24,7 +24,7 @@ router.get("/todo", isAuth, async (req: any, res) => {
   res.send({ todos });
 });
 
-router.post("/todo", isAuth, async (req: any, res) => {
+router.post("/todo", isAuth, async (req, res) => {
   const todo = await Todo.create({
     creatorId: req.userId,
     title: req.body.title,
@@ -32,10 +32,12 @@ router.post("/todo", isAuth, async (req: any, res) => {
   res.send({ todo });
 });
 
-router.put("/todo", isAuth, async (req: any, res) => {
-  console.log(req.body);
-  const todo = await Todo.findOne(req.body.id);
-  console.log(todo);
+router.put("/todo", isAuth, async (req, res) => {
+  const todo = await Todo.findOne({
+    where: {
+      id: req.body.id,
+    },
+  });
   if (!todo) {
     res.send({ todo: null });
     return;
@@ -46,7 +48,6 @@ router.put("/todo", isAuth, async (req: any, res) => {
   todo.completed = !todo.completed;
   await todo.save();
   res.send({ todo });
-  console.log(todo);
 });
 
 router.get("/user", async (req, res) => {

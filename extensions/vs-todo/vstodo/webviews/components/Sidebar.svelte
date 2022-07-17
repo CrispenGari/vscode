@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Form from "./Form.svelte";
-  import Todo from "./Todo.svelte";
   import Todos from "./Todos.svelte";
   import UserCard from "./UserCard.svelte";
 
@@ -10,6 +9,11 @@
   let user: any = null;
   let accessToken = "";
 
+  let tab: "todos" | "about" = tsvscode.getState()?.state || "todos";
+
+  $: {
+    tsvscode.setState({ state: tab });
+  }
   onMount(async () => {
     window.addEventListener("message", async (event) => {
       const message = event.data;
@@ -66,20 +70,40 @@
 </script>
 
 <div class="app">
-  {#if loading}
-    <div>loading....</div>
+  {#if tab === "about"}
+    <div class="about">
+      <button
+        on:click={() => {
+          tab = "todos";
+        }}>Go to Todos</button
+      >
+    </div>
   {:else}
     <div>
-      {#if user}
-        <UserCard {user} {logout} />
-        <Form {accessToken} bind:todos />
-        <Todos bind:todos {accessToken} />
+      {#if loading}
+        <div>loading....</div>
       {:else}
-        <button
-          on:click={() => {
-            tsvscode.postMessage({ type: "authenticate", value: undefined });
-          }}>Login With Github</button
-        >
+        <div>
+          <button
+            on:click={() => {
+              tab = "about";
+            }}>Go to About</button
+          >
+          {#if user}
+            <UserCard {user} {logout} />
+            <Form {accessToken} bind:todos />
+            <Todos bind:todos {accessToken} />
+          {:else}
+            <button
+              on:click={() => {
+                tsvscode.postMessage({
+                  type: "authenticate",
+                  value: undefined,
+                });
+              }}>Login With Github</button
+            >
+          {/if}
+        </div>
       {/if}
     </div>
   {/if}

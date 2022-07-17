@@ -827,6 +827,41 @@ webviewView.webview.onDidReceiveMessage(async (data) => {
 
 > The code for the logic on the `CRUD` operations on todos is simple and will be found in the files.
 
+### Keeping track of the window state.
+
+Let's say you have two pages that you are navigating to for example in our side bar. When the developer opens a sidebar and they are in the about page, and when they close the we want them to be taken back to the to the last page there were in. So for this we need to access two functions from our `tsvscode` global which are:
+
+1. `getState`
+2. `setState`
+
+So we are going to change the globals.d.ts in the webviews folder to:
+
+```ts
+import * as _vscode from "vscode";
+
+declare global {
+  const tsvscode: {
+    postMessage: ({ type: string, value: any }) => void;
+    getState: () => any;
+    setState: (state: any) => void;
+  };
+  const apiBaseUrl: string;
+}
+```
+
+Now in our `Sidebar.svelte` file we will be able to keep tracking of the last state when the sidebar is closed and opened.
+
+```svelte
+<script lang="ts">
+  let tab: "todos" | "about" = tsvscode.getState()?.state || "todos";
+  $: {
+    tsvscode.setState({ state: tab });
+  }
+</script>
+```
+
+So in the `html` section we will render the content based on the value of the `tab`.
+
 ### Refs
 
 1. [code.visualstudio.com](https://code.visualstudio.com/api/get-started/your-first-extension)

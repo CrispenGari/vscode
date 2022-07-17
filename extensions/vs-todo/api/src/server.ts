@@ -26,8 +26,8 @@ import { User } from "./entities/User";
   passport.use(
     new GitHubStrategy(
       {
-        clientID: process.env.GITHUB_CLIENT_ID as string,
-        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+        clientID: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callbackURL: `http://localhost:${PORT}/auth/github/callback`,
       },
       async (
@@ -54,7 +54,7 @@ import { User } from "./entities/User";
         cb(null, {
           accessToken: jwt.sign(
             { userId: user.id },
-            process.env.ACCESS_TOKEN_SECRET as string,
+            process.env.ACCESS_TOKEN_SECRET,
             {
               expiresIn: "1y",
             }

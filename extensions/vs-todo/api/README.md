@@ -379,7 +379,11 @@ To update the todo for the user we do it as follows:
 
 ```ts
 router.put("/todo", isAuth, async (req: any, res) => {
-  const todo = await Todo.findOne(req.body.id);
+  const todo = await Todo.findOne({
+    where: {
+      id: req.body.id,
+    },
+  });
   if (!todo) {
     res.send({ todo: null });
     return;
@@ -408,6 +412,34 @@ router.post("/todo", isAuth, async (req: any, res) => {
 ```
 
 > Now we can work on the frontend to interact with this server.
+
+### Aligning types for express.
+
+We want to extend the `req` object to have `userId` for that we are going to declare a namespace in `express-extend.d.ts`file as follows:
+
+```ts
+declare namespace Express {
+  export interface Request {
+    userId: number;
+  }
+}
+```
+
+### .env namespaces
+
+We also want to have types for our environment variables, for that we are going to have an `env.d.ts` file in the root of the project which looks as follows:
+
+```ts
+declare namespace NodeJS {
+  export interface ProcessEnv {
+    DATABASE_USERNAME: string;
+    DATABASE_PASSWORD: string;
+    GITHUB_CLIENT_ID: string;
+    GITHUB_CLIENT_SECRET: string;
+    ACCESS_TOKEN_SECRET: string;
+  }
+}
+```
 
 ### Links
 
