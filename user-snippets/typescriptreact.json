@@ -1,4 +1,24 @@
 {
+  "Relative Style Import CSS": {
+    "prefix": ["css"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.css;\""],
+    "description": "Import a relative css file for styling react components."
+  },
+  "Relative Style Import SASS": {
+    "prefix": ["sass"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.sass;\""],
+    "description": "Import a relative sass file for styling react components."
+  },
+  "Relative Style Import SCSS": {
+    "prefix": ["scss"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.scss;\""],
+    "description": "Import a relative scss file for styling react components."
+  },
+  "Relative Style Import Module CSS": {
+    "prefix": ["mcss"],
+    "body": ["import styles from \"./${1:$TM_FILENAME_BASE}.module.css;\""],
+    "description": "Import a relative module css file for styling react components."
+  },
   "Class Based Component": {
     "prefix": ["cbce"],
     "body": [
