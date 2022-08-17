@@ -1,17 +1,17 @@
 {
   "Relative Style Import CSS": {
     "prefix": ["css"],
-    "body": ["import \"./${1:$TM_FILENAME_BASE}.css;\""],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.css\";"],
     "description": "Import a relative css file for styling react components."
   },
   "Relative Style Import SASS": {
     "prefix": ["sass"],
-    "body": ["import \"./${1:$TM_FILENAME_BASE}.sass;\""],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.sass\";"],
     "description": "Import a relative sass file for styling react components."
   },
   "Relative Style Import SCSS": {
     "prefix": ["scss"],
-    "body": ["import \"./${1:$TM_FILENAME_BASE}.scss;\""],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.scss\";"],
     "description": "Import a relative scss file for styling react components."
   },
   "Relative Style Import Module CSS": {
