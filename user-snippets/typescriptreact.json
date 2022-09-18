@@ -29,14 +29,14 @@
   "Functional Based Component Default Export": {
     "prefix": ["fbc"],
     "body": [
-      "import React from 'react';\n\ninterface Props {}\nconst ${1: $TM_FILENAME_BASE}: React.FC<Props> = ({}) => {\n\treturn (\n\t\t<div className='${2: $TM_FILENAME}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};\n\nexport default ${4: $TM_FILENAME_BASE};"
+      "import React from 'react';\n\ninterface Props {}\nconst ${1: $TM_FILENAME_BASE}: React.FC<Props> = ({}) => {\n\treturn (\n\t\t<div className='${2:$TM_FILENAME_BASE}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};\n\nexport default ${4: $TM_FILENAME_BASE};"
     ],
     "description": "Generates a functional based component for typescript react with default export."
   },
   "Functional Based Component": {
     "prefix": ["fbce"],
     "body": [
-      "import React from 'react';\n\ninterface Props {}\nexport const ${1: $TM_FILENAME_BASE}: React.FC<Props> = ({}) => {\n\treturn (\n\t\t<div className='${2: $TM_FILENAME}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};"
+      "import React from 'react';\n\ninterface Props {}\nexport const ${1: $TM_FILENAME_BASE}: React.FC<Props> = ({}) => {\n\treturn (\n\t\t<div className='${2:$TM_FILENAME_BASE}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};"
     ],
     "description": "Generates a functional based component for typescript react with default export."
   },
