@@ -33,6 +33,7 @@ Here are the list of my extensions that i use in my `vscode` editor.
 - Live Server
 - Markdown Preview Enhanced
 - One Dark Pro
+- Total TypeScript
 - Material Icon
 - Powershell
 - Prettier -Code formatter
