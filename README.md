@@ -8,6 +8,7 @@
 
 Here are the list of my extensions that i use in my `vscode` editor.
 
+- JSON Crack
 - :emojisense:
 - Auto Rename Tag
 - autoDocstring Python Docstring
