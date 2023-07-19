@@ -1,0 +1,50 @@
+{
+  "Relative Style Import CSS": {
+    "prefix": ["css"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.css\";"],
+    "description": "Import a relative css file for styling react components."
+  },
+  "Relative Style Import SASS": {
+    "prefix": ["sass"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.sass\";"],
+    "description": "Import a relative sass file for styling react components."
+  },
+  "Relative Style Import SCSS": {
+    "prefix": ["scss"],
+    "body": ["import \"./${1:$TM_FILENAME_BASE}.scss\";"],
+    "description": "Import a relative scss file for styling react components."
+  },
+  "Relative Style Import Module CSS": {
+    "prefix": ["mcss"],
+    "body": ["import styles from \"./${1:$TM_FILENAME_BASE}.module.css\";"],
+    "description": "Import a relative module css file for styling react components."
+  },
+  "Class Based Component": {
+    "prefix": ["cbce"],
+    "body": [
+      "import React from 'react';\n\nexport class ${1:$TM_FILENAME_BASE} extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {};\n\t}\n\trender() {\n\t\tconst {} = this;\n\t\treturn (\n\t\t\t<div className='${3:$TM_FILENAME_BASE}'>\n\t\t\t\t<h1>Hello from ${2:$TM_FILENAME}</h1>\n\t\t\t</div>\n\t\t);\n\t}\n}"
+    ],
+    "description": "Generates a class based component for javascript react without default export."
+  },
+  "Functional Based Component Default Export": {
+    "prefix": ["fbc"],
+    "body": [
+      "import React from 'react';\n\nconst ${1: $TM_FILENAME_BASE} = ({}) => {\n\treturn (\n\t\t<div className='${2:$TM_FILENAME_BASE}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};\n\nexport default ${4: $TM_FILENAME_BASE};"
+    ],
+    "description": "Generates a functional based component for javascript react with default export."
+  },
+  "Functional Based Component": {
+    "prefix": ["fbce"],
+    "body": [
+      "import React from 'react';\n\nexport const ${1: $TM_FILENAME_BASE} = ({}) => {\n\treturn (\n\t\t<div className='${2:$TM_FILENAME_BASE}'>\n\t\t\t<h1>Hello from ${3: $TM_FILENAME_BASE}</h1>\n\t\t</div>\n\t);\n};"
+    ],
+    "description": "Generates a functional based component for javascript react with default export."
+  },
+  "Class Based Component Default Export": {
+    "prefix": ["cbc"],
+    "body": [
+      "import React from 'react';\n\nclass ${1:$TM_FILENAME_BASE} extends React.Component {\n\tconstructor(props) {\n\t\tsuper(props);\n\t\tthis.state = {};\n\t}\n\trender() {\n\t\tconst {} = this;\n\t\treturn (\n\t\t\t<div className='${3:$TM_FILENAME_BASE}'>\n\t\t\t\t<h1>Hello from ${2:$TM_FILENAME}</h1>\n\t\t\t</div>\n\t\t);\n\t}\n}\n\n export default ${3: $TM_FILENAME_BASE}"
+    ],
+    "description": "Generates a class based component for javascript react with default export."
+  }
+}
