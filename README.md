@@ -54,3 +54,5 @@ Here are the list of my extensions that i use in my `vscode` editor.
 - TabNine
 - vscode-icons
 - Vue Language Features (Volar)
+- CSS Peek
+- Power Mode
