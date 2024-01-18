@@ -58,3 +58,4 @@ Here are the list of my extensions that i use in my `vscode` editor.
 - Vue Language Features (Volar)
 - CSS Peek
 - Power Mode
+- vscode-twoslash-queries
