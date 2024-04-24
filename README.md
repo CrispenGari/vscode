@@ -10,6 +10,7 @@ Here are the list of my extensions that i use in my `vscode` editor.
 
 
 - Pretty TypeScript Errors
+- json2ts
 - VSCode Animations
 - JSON Crack
 - :emojisense:
